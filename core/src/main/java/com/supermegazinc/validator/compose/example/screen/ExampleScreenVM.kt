@@ -18,9 +18,9 @@ class ExampleScreenVM() : ViewModel() {
 	private val exampleForm = ExampleForm()
 
 	val exampleFormReactive = ExampleFormReactive(
-		username = exampleForm.username.reactive(),
-		password = exampleForm.password.reactive(),
-		password2 = exampleForm.password2.reactive(),
+		username = exampleForm.username.reactive(""),
+		password = exampleForm.password.reactive(""),
+		password2 = exampleForm.password2.reactive(""),
 	)
 
 	val isReady = listOf(
