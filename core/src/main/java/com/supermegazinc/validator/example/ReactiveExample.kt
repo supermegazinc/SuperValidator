@@ -2,27 +2,27 @@ package com.supermegazinc.validator.example
 
 import com.supermegazinc.flow.core.utils.set
 import com.supermegazinc.validator.core.utils.StringValidatorBuilder
-import com.supermegazinc.validator.core.utils.ValidatedString
-import com.supermegazinc.validator.core.utils.validated
+import com.supermegazinc.validator.core.utils.StringValidators
+import com.supermegazinc.validator.core.utils.asInputValidators
 import com.supermegazinc.validator.reactive.utils.ValidatedStringReactive
 import com.supermegazinc.validator.reactive.utils.failedValidatorFlow
 import com.supermegazinc.validator.reactive.utils.failedValidatorOrNull
 import com.supermegazinc.validator.reactive.utils.reactive
 import com.supermegazinc.validator.reactive.utils.render
-import com.supermegazinc.validator.validators.StringValidators
+import com.supermegazinc.validator.validators.CommonStringValidators
 import kotlinx.coroutines.flow.onEach
 
 fun reactiveExample() {
 
 	//How validation data is stored in the backend
 	data class InputData(
-		val name: ValidatedString = "".validated(setOf(StringValidators.EmptyField)),
-		val lastName: ValidatedString = "".validated(setOf(StringValidators.EmptyField)),
+		val name: StringValidators = setOf(CommonStringValidators.EmptyField).asInputValidators(),
+		val lastName: StringValidators = setOf(CommonStringValidators.EmptyField).asInputValidators(),
 	)
 
 	val inputData = InputData()
 
-	//Define the same entity as InputData converting the ValidatedString to ValidatedStringReactive
+	//Define the same entity as InputData converting the StringValidators to ValidatedStringReactive
 	data class InputDataReactive(
 		val name: ValidatedStringReactive,
 		val lastName: ValidatedStringReactive
@@ -30,8 +30,8 @@ fun reactiveExample() {
 
 	//Build the reactive InputData by simply converting the parameters using reactive()
 	val inputDataReactive = InputDataReactive(
-		name = inputData.name.reactive(),
-		lastName = inputData.lastName.reactive()
+		name = inputData.name.reactive(""),
+		lastName = inputData.lastName.reactive("")
 	)
 
 	//Now you can edit the field value

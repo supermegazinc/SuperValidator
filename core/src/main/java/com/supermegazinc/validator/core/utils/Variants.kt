@@ -1,10 +1,10 @@
 package com.supermegazinc.validator.core.utils
 
 import com.supermegazinc.validator.core.InputValidator
-import com.supermegazinc.validator.core.ValidatedInput
+import com.supermegazinc.validator.core.InputValidators
 
-typealias ValidatedString = ValidatedInput<String>
-typealias ValidatedInt = ValidatedInput<Int>
+typealias StringValidators = InputValidators<String>
+typealias IntValidators = InputValidators<Int>
 
 typealias StringValidator = InputValidator<String>
 typealias IntValidator = InputValidator<Int>

@@ -1,6 +1,5 @@
 package com.supermegazinc.validator.core
 
-data class ValidatedInput<T>(
-	val initialValue: T,
+data class InputValidators<T>(
 	val validators: Set<InputValidator<T>>
 )

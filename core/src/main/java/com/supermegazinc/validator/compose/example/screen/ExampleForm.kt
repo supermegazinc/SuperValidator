@@ -1,15 +1,15 @@
 package com.supermegazinc.validator.compose.example.screen
 
 import com.supermegazinc.validator.compose.utils.ValidatedStringCompose
-import com.supermegazinc.validator.core.utils.ValidatedString
-import com.supermegazinc.validator.core.utils.validated
+import com.supermegazinc.validator.core.utils.StringValidators
+import com.supermegazinc.validator.core.utils.asInputValidators
 import com.supermegazinc.validator.reactive.utils.ValidatedStringReactive
-import com.supermegazinc.validator.validators.StringValidators
+import com.supermegazinc.validator.validators.CommonStringValidators
 
 data class ExampleForm(
-	val username: ValidatedString = "".validated(setOf(StringValidators.EmptyField)),
-	val password: ValidatedString = "".validated(setOf(StringValidators.EmptyField)),
-	val password2: ValidatedString = "".validated(setOf(StringValidators.EmptyField))
+	val username: StringValidators = setOf(CommonStringValidators.EmptyField).asInputValidators(),
+	val password: StringValidators = setOf(CommonStringValidators.EmptyField).asInputValidators(),
+	val password2: StringValidators = setOf(CommonStringValidators.EmptyField).asInputValidators()
 )
 
 data class ExampleFormReactive(
