@@ -18,4 +18,5 @@ fun <T> InputValidators<T>.reactive(initialValue: T): ValidatedInputReactive<T> 
 
 }
 
-fun <T>ValidatedInputReactive(validators: InputValidators<T>, initialValue: T) = validators.reactive(initialValue)
+fun <T> ValidatedInputReactive(validators: InputValidators<T>, initialValue: T) =
+	validators.reactive(initialValue)

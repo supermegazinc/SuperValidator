@@ -18,26 +18,20 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.supermegazinc.flow.core.utils.set
 import com.supermegazinc.validator.compose.utils.ValidatedIntCompose
 import com.supermegazinc.validator.compose.utils.ValidatedStringCompose
 import com.supermegazinc.validator.compose.utils.compose
-import com.supermegazinc.validator.core.InputValidators
-import com.supermegazinc.validator.core.utils.InputValidatorBuilder
 import com.supermegazinc.validator.core.utils.IntValidator
 import com.supermegazinc.validator.core.utils.IntValidators
 import com.supermegazinc.validator.core.utils.StringValidators
 import com.supermegazinc.validator.core.utils.asInputValidators
-import com.supermegazinc.validator.reactive.ValidatedInputReactive
 import com.supermegazinc.validator.reactive.utils.ValidatedIntReactive
 import com.supermegazinc.validator.reactive.utils.ValidatedStringReactive
 import com.supermegazinc.validator.reactive.utils.isValidFlow
 import com.supermegazinc.validator.reactive.utils.reactive
-import com.supermegazinc.validator.reactive.utils.renderIfValid
 import com.supermegazinc.validator.validators.CommonStringValidators
-import kotlinx.coroutines.flow.Flow
 
-class GreaterValidator(private val than: Int): IntValidator {
+class GreaterValidator(private val than: Int) : IntValidator {
 	override fun validate(input: Int): Boolean = input > than
 }
 
@@ -94,23 +88,23 @@ fun ExampleScreen(form: BackendReactiveForm) {
 		TextField(
 			placeholder = { Text("Name") },
 			value = name,
-			onValueChange = {name = it},
-			isError = composeForm.name.failedValidator!=null
+			onValueChange = { name = it },
+			isError = composeForm.name.failedValidator != null
 		)
 		TextField(
 			placeholder = { Text("Last Name") },
 			value = lastName,
-			onValueChange = {lastName = it},
-			isError = composeForm.lastName.failedValidator!=null
+			onValueChange = { lastName = it },
+			isError = composeForm.lastName.failedValidator != null
 		)
 		TextField(
 			placeholder = { Text("Age") },
-			value = age.takeIf { it>=0 }?.toString() ?: "",
+			value = age.takeIf { it >= 0 }?.toString() ?: "",
 			onValueChange = { age = it.toIntOrNull() ?: -1 },
 			keyboardOptions = KeyboardOptions(
 				keyboardType = KeyboardType.NumberPassword
 			),
-			isError = composeForm.age.failedValidator!=null
+			isError = composeForm.age.failedValidator != null
 		)
 		Button(
 			enabled = isFinished,

@@ -40,8 +40,8 @@ fun useForm(form: BackendReactiveForm) {
 
 //Use the render functions to get the final values if they meet the requirements
 fun finishForm(form: BackendReactiveForm) {
-	require(form.name.renderIfValid()!=null)
-	require(form.lastName.renderIfValid()!=null)
-	require(form.age.renderIfValid()!=null)
+	require(form.name.renderIfValid() != null)
+	require(form.lastName.renderIfValid() != null)
+	require(form.age.renderIfValid() != null)
 	println("Form is valid!")
 }
