@@ -22,3 +22,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "SuperValidator"
 include(":core")
+include(":examples:backend-form")
+include(":examples:reactive-form")
+include(":examples:compose-form")
