@@ -15,7 +15,7 @@ fun <T> ValidatedInputReactive<T>.failedValidatorFlow(): Flow<InputValidator<T>?
 fun <T> ValidatedInputReactive<T>.failedValidatorOrNull(): InputValidator<T>? =
 	validators.value.value.failedValidatorOrNull(render())
 
-fun <T> List<ValidatedInputReactive<T>>.isValidFlow(): Flow<Boolean> {
+fun List<ValidatedInputReactive<*>>.isValidFlow(): Flow<Boolean> {
 	return this.map {
 		it.failedValidatorFlow()
 	}.let { flowList ->
