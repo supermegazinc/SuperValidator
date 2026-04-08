@@ -18,6 +18,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.supermegazinc.flow.compose.utils.getValue
+import com.supermegazinc.flow.compose.utils.setValue
 import com.supermegazinc.validator.compose.utils.ValidatedIntCompose
 import com.supermegazinc.validator.compose.utils.ValidatedStringCompose
 import com.supermegazinc.validator.compose.utils.compose
